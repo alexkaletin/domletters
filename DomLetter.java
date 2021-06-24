@@ -1,13 +1,12 @@
-import java.util.HashMap;
-import java.util.Scanner;
+//Aleksandr Kaletin
+
 import java.util.*;
-import java.io.File;
 import java.io.*;
 
 public class DomLetter {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) {
         HashMap<Character, Integer> mymap = new HashMap<Character, Integer>();
-        Scanner input = new Scanner(new File(args[0]));
+        Scanner input = new Scanner(System.in);
         int total = 0;
 
         //reads from file until has no new lines
@@ -30,11 +29,6 @@ public class DomLetter {
                         num = 1;
                     }
                     mymap.put(c, num);
-
-                    //TODO
-                    //System.out.print(c);
-                    //System.out.print(mymap.get(c));
-
                 }else{
                     mymap.clear();
                     break;
@@ -44,15 +38,13 @@ public class DomLetter {
                 if(!mymap.isEmpty()){
                     //finds the largest amount in the hashmap
                     total += Collections.max(mymap.values());
-                    //System.out.print(Collections.max(mymap.values()));
-                    //System.out.print(total);
 
                     //update total and clear map
                     mymap.clear();
                 }
-
         }
 
+        //prints out total number
         System.out.println(total);
     }
 }
