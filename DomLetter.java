@@ -9,7 +9,7 @@ public class DomLetter {
         Scanner input = new Scanner(System.in);
         int total = 0;
 
-        //reads from file until has no new lines
+        //reads from file until has no new words
         while(input.hasNext()){
             //reads in word
             String word = input.next();
@@ -30,18 +30,20 @@ public class DomLetter {
                     }
                     mymap.put(c, num);
                 }else{
+                    //clears map and stops checking each char
                     mymap.clear();
                     break;
                 }
-           }
+            }
 
-                if(!mymap.isEmpty()){
-                    //finds the largest amount in the hashmap
-                    total += Collections.max(mymap.values());
+            //checks to see if mymap is not empty
+            if(!mymap.isEmpty()){
+                //finds the largest amount in the hashmap and updates tota
+                total += Collections.max(mymap.values());
 
-                    //update total and clear map
-                    mymap.clear();
-                }
+                //clears map
+                mymap.clear();
+            }
         }
 
         //prints out total number
